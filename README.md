@@ -67,6 +67,8 @@ Nock
 
 [Nx](https://nx.dev)
 
+[Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
+
 
 
 ### Uppgift

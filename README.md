@@ -2,7 +2,9 @@
 
 ## Att ha förinstallerat
 [NodeJs](https://nodejs.org)
+
 [Visual Studio Code](https://code.visualstudio.com)
+
 [Dumbledore Repot](https://github.com/HumbleCreatures/dumbledore)
 
 ## Sätta upp projekt från början
@@ -58,8 +60,11 @@ Nock
 
 ### Länkar
 [Redux Toolkit](https://redux-toolkit.js.org)
+
 [React Router](https://reactrouter.com)
+
 [React Query](https://react-query-v3.tanstack.com)
+
 [Nx](https://nx.dev)
 
 

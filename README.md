@@ -47,13 +47,13 @@ Nock
 `npm install --save-dev nock`
 
 ### Köra projectet. Samma om du laddat hem repot.
-`clone `
+`clone https://github.com/HumbleCreatures/dumbledore.git`
 `cd dumbledore`
 `npm install`
-`npx nx run api`
+`npx nx serve dumbledore-api`
 
 Öppna ny terminal och gå till samma katalog:
-`npx nx run web`
+`nx run dumbledore-app:serve:development`
 
 
 ### Länkar
@@ -65,14 +65,17 @@ Nock
 
 
 ### Uppgift
+#### Steg 1
 Skapa ärende med titel och beskrivning.
 Lista ärende med titel och datum.
-Visa ett specifikt ärende. Titel, beskrivning och datum.
+Visa ett specifikt ärende med titel, beskrivning och datum.
 
+#### Steg 2
 Spara nytt ärende till server.
 Hämta alla ärenden från servern.
 Hämta ett specifikt ärende från servern.
 
+#### Steg 3
 Stänga ett ärende.
 Lista stängda ärenden för sig.
 Lista öppna ärenden för sig.
@@ -82,18 +85,20 @@ Grundläggande genomgång hur en react komponent funkar med props, state och lif
 Gå igenom hur typescript hjälper till att validera och kommuncera data som komponenter använder.
 Skillnad på vykomponenter och datakomponenter. Hur kan storybok hjälpa oss att skilja på vyer och logik.
 Hur återanvänder man kod och css i react med hjälp av StyledComponentes.
+Grundläggande funktionell programmering i TypeScript med spreaders, map och reduce.
 
 #### Uppgift 1
 Skapa en komponent för att skapa ett ärende
 Skapa en komponent för att lista ärenden.
-Skapa en kompontent för att visa ett ärende.
+Skapa en komponent för att visa ett ärende.
 (Använd storybook och stories för att skicka in data)
 
 ### Pass 2 - Ryskadocken problemet
-Hur skickas samma data till komponenter fler olika komponenter.
-Strategier för att undvika att skicka data till komponenter som bara vidarebefodrar datan till andra komponenter.
+Hur skickas samma data till fler olika komponenter?
+Strategier för att undvika att skicka data genom flera komponenter för att komma till destinationen.
 Skillnanden på intentioner och data, anledningen till att reducer-mönster är så populärt.
 Dela upp datan i slices med redux och redux-toolkit.
+Grundläggande asynkrona flöden med promises, async och await.
 Arbeta med asynkront data i redux med AsyncThunk.
 
 #### Uppgift 2
@@ -103,16 +108,15 @@ Använda AsyncThunk för att skapa ärende.
 Använda AsyncThunk för att hämta ett ärende.
 Rendera data i vy-komponenterna.
 
-
-### Pass 3 - Alternativ state-hantering.
+### Pass 3 - Alternativ state-hantering
 Sätta upp react-router för att kunna använda url för state-hantering.
-Använda react query för att hämta data från servern.
+Skydda en route, t.ex. vid inloggat läge.
+Använda react query för att hämta och skicka data från servern.
 
 #### Uppgift 3
 Sätt upp react-router.
 Skapa en route för att hämta ett specifikt ärende.
 Använda react query för att hämta alla ärenden.
-
 
 ### Pass 4 - Test all the things
 Testa logik i komponenter med Jest och react-testing-library.
@@ -123,8 +127,12 @@ Testa AsyncThunk med nock.
 #### Uppgift 4
 Testa en vykomponent.
 Testa en komponent som använder react query med hjälp av nock.
-Skriv ett för en action.
+Testa en redux slice.
 
 ### Bonus om det finns tid över.
 Titta på NextJs och server rendering.
 Titta på React Native.
+
+
+#### Bonus uppgift
+[Bonus uppgift](https://github.com/HumbleCreatures/flotsam-uppgift)

@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@dumbledore/dumbledore-ui": ["libs/dumbledore-ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

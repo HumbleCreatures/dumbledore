@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { addCase } from './caseSlice';
+import { addMyCase } from './caseSlice';
 import { useAppSelector, useAppDispatch } from './store';
 type Case = {
     title: string;
@@ -26,7 +26,7 @@ const CreateCaseForm = ({onAddCase}:{onAddCase: (caseToAdd: Case) => void}) => {
     return <form>
         <input></input>
         <button onClick={() => {
-            dispatch(addCase({title:'title', description: 'description'}))}
+            dispatch(addMyCase({title:'title', description: 'description'}))}
             }></button>
     </form>
 }
@@ -51,7 +51,7 @@ export const RyskaDockan = () => {
     })
 
     return <div>
-        <CaseView cases={dockState.cases} ></CaseView>
+        <CaseView ></CaseView>
     </div>
 }
 

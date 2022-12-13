@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snappshot test 1`] = `
+<div>
+  Message:
+  MEEP MEEP
+  <div>
+    <button>
+      Klicka på mig
+    </button>
+  </div>
+</div>
+`;

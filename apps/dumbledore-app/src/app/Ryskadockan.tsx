@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { addMyCase } from './caseSlice';
 import { useAppSelector, useAppDispatch } from './store';
 type Case = {

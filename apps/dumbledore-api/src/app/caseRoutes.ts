@@ -13,7 +13,13 @@ function randomId(): string {
     return Math.floor(Math.random() * (10000 - 1 + 1) + 1).toString();
 }
 
-const cases: Case[] = [];
+const cases: Case[] = [{ 
+    id: '123',
+    title: 'title',
+    description: 'description',
+    created: new Date(),
+    closed: false,
+}];
 
 const router = express.Router();
 

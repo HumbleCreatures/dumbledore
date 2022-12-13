@@ -1,8 +1,17 @@
-import { useQuery } from "react-query";
+import { QueryClient, useQuery, QueryClientProvider } from 'react-query';
+type Case = {
+    id: string;
+    title: string;
+    description: string;
+    closed: boolean;
+    created: Date;
+}
 
 export const SimpleFetchView = () => {
     const  { isLoading, error, data }   = useQuery('repoData', () =>
-        Promise.resolve([{ name: 'test', age: 12 }, { name: 'test2', age: 13 }, { name: 'test2', age: 14 }])
+        fetch('http://localhost:3333/api/case/all').then(res =>
+            res.json()
+        )
     )
 
     if(isLoading) {
@@ -13,8 +22,15 @@ export const SimpleFetchView = () => {
         return <div>Det gick inte så bra</div>
     }
 
-    const listOfTesters = data?.map(item => { return <li>{item.name} - {item.age}</li>})
+    const listOfTesters = data?.map((item:Case) => { return <li>{item.title}</li>})
 
     return <ul>{listOfTesters}</ul>
 
+}
+
+const queryClient = new QueryClient()
+export const SimpleFetchWithProviders = () => {
+    return <QueryClientProvider client={queryClient}>
+        <SimpleFetchView />
+    </QueryClientProvider>
 }

@@ -70,7 +70,6 @@ Nock
 [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
 
 
-
 ### Uppgift
 #### Steg 1
 Skapa ärende med titel och beskrivning.

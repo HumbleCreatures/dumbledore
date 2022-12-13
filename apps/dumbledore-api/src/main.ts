@@ -8,7 +8,7 @@ import * as path from 'path';
 import * as cors from 'cors';
 
 
-import todoRoutes from './app/todoRoutes';
+import todoRoutes from './app/caseRoutes';
 
 const app = express();
 app.use(express.json());
@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.use('/api/todo/', todoRoutes);
+app.use('/api/case/', todoRoutes);
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to dumbledore-api!' });

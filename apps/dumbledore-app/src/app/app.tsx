@@ -13,4 +13,8 @@ export function App() {
   );
 }
 
+/* Redux setup
+<Provider store={store}>
+</Provider>
+*/
 export default App;

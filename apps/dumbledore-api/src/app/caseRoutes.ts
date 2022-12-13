@@ -1,48 +1,51 @@
 import * as express from 'express';
 
-type Todo = {
+type Case = {
     id: string;
     title: string;
     description: string;
+    closed: boolean;
     created: Date;
 }
 
 
 function randomId(): string { 
     return Math.floor(Math.random() * (10000 - 1 + 1) + 1).toString();
-  }
+}
 
-  let toDos: Todo[] = [];
+const cases: Case[] = [];
 
 const router = express.Router();
 
 router.get('', (req, res) => {
-    res.send({ message: 'Welcome to //TODO' });
+    res.send({ message: 'Welcome to /case' });
 });
 
 router.get('/all', (req, res) => {
-    res.json(toDos);
+    res.json(cases);
 });
 
 router.post('/add', (req, res) => {
-    const newTodo: Todo = {
+    const newCase: Case = {
         id: randomId(),
         title: req.body.title,
         description: req.body.description,
-        created: new Date()
+        created: new Date(),
+        closed: false
     };
 
-    toDos.push(newTodo);
-
-    res.json(newTodo);
+    cases.push(newCase);
+    res.json(newCase);
 });
 
-router.post('/delete', (req, res) => {
+router.post('/close', (req, res) => {
     if(!req.body.id) {
-        res.send(400).json({messge: "Need an id to remove a todo."});
+        res.send(400).json({messge: "Need an id to cose a case."});
     }
-    toDos = toDos.filter(todo => todo.id !== req.body.id)
+    const caseToClose = cases.find(todo => todo.id !== req.body.id);
+    caseToClose.closed = true;
+    
+    return caseToClose;
 });
-
 
 export default router;

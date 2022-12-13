@@ -6,18 +6,48 @@ type CaseInput = {
     description: string;
 }
 
-type Case = {
+type Case = CaseInput & {
     id: string;
-    title: string;
-    description: string;
     created: Date;
 }
 
 type CaseState = {
-    cases: Case[]
+    cases: Case[],
+    loadingDataFromServer: boolean
 }
 
-const initialState: CaseState = { cases: []};
+const initialState: CaseState = { cases: [], loadingDataFromServer: false};
+
+
+
+export const caseSlice = createSlice({
+  name: 'case',
+  initialState,
+  reducers: {
+    addMyCase: (state, action: PayloadAction<CaseInput>) => {
+      state.cases = [...state.cases, {...action.payload, id: '123', created: new Date() }]
+      return state;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchCases.fulfilled, (state, {payload}) => {
+      state.cases = payload
+      state.loadingDataFromServer = false;
+      return state;
+    })
+
+    builder.addCase(fetchCases.pending, (state, action) => {
+      state.loadingDataFromServer = true;
+      return state;
+    })
+
+    builder.addCase(login, (state, action) => {
+      console.log('do something when user login');
+      state.cases = [];
+      return state;
+    })
+  },
+})
 
 export const fetchCases = createAsyncThunk<
   Case[],
@@ -37,23 +67,4 @@ export const fetchCases = createAsyncThunk<
 );
 
 
-export const caseSlice = createSlice({
-  name: 'case',
-  initialState,
-  reducers: {
-    addCase: (state, action: PayloadAction<CaseInput>) => {
-        console.log('add case');
-    },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(fetchCases.fulfilled, (state, {payload}) => {
-      state.cases = payload
-      return state;
-    })
-    builder.addCase(login, (state, action) => {
-      console.log('do something when user login');
-    })
-  },
-})
-
-export const { addCase } = caseSlice.actions
+export const { addMyCase } = caseSlice.actions

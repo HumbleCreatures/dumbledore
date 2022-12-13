@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { caseSlice } from './caseSlice';
 
 export const store = configureStore({
   reducer: {
-//    user: userSlice.reducer,
+    mycase: caseSlice.reducer
   }
 });
 
